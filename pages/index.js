@@ -17,6 +17,7 @@ const addTodoPopup = new ImportedPopupWithFrom({
   popupSelector: "#add-todo-popup",
   handleFormSubmit: () => {},
 });
+addTodoPopup.setEventListeners();
 
 function handleCheck(completed) {
   todoCounter.updateCompleted(completed);
@@ -59,9 +60,9 @@ addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
 });
 
-addTodoCloseBtn.addEventListener("click", () => {
-  closeModal(addTodoPopupEl);
-});
+// addTodoCloseBtn.addEventListener("click", () => {
+//   closeModal(addTodoPopupEl);
+// });
 
 addTodoForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
@@ -76,7 +77,7 @@ addTodoForm.addEventListener("submit", (evt) => {
   const values = { name, date, id };
   const todo = generateTodo(values);
   todosList.append(todo);
-  closeModal(addTodoPopupEl);
+  addTodoPopup.close();
 });
 
 const newFormValidator = new ImportedFormValidator(

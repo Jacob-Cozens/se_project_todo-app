@@ -51,16 +51,12 @@ const section = new ImportedSection({
 
 section.renderItems();
 
-const openModal = (modal) => {
-  modal.classList.add("popup_visible");
-};
-
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
 };
 
 addTodoButton.addEventListener("click", () => {
-  openModal(addTodoPopupEl);
+  addTodoPopup.open();
 });
 
 addTodoCloseBtn.addEventListener("click", () => {
